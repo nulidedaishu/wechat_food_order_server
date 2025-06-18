@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yy.wechat.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.yy.wechat.model.entity.User">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="openid" column="openid" jdbcType="VARCHAR"/>
+            <result property="sessionToken" column="session_token" jdbcType="VARCHAR"/>
+            <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
+            <result property="avatarUrl" column="avatar_url" jdbcType="VARCHAR"/>
+            <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+            <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
+            <result property="isdeleted" column="isDeleted" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,openid,session_token,nickname,avatar_url,created_at,
+        updated_at,isDeleted
+    </sql>
+</mapper>
