@@ -1,0 +1,48 @@
+### GET request to example server
+GET http://localhost:8081/api/product/list
+Accept: application/json
+
+###
+GET https://10080331iqpm2.vicp.fun/api/product/list
+Accept: application/json
+
+###
+POST https://10080331iqpm2.vicp.fun/api/auth/login
+Content-Type: application/json
+
+{ "code": "0234abcd" }
+
+###
+POST http://localhost:8081/api/auth/login
+Content-Type: application/json
+
+{ "code": "0234abcd" }
+
+###
+POST https://10080331iqpm2.vicp.fun/orders
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "productId": 1,
+      "quantity": 1
+    },
+    {
+      "productId": 2,
+      "quantity": 1
+    }
+  ]
+}
+
+###
+POST https://10080331iqpm2.vicp.fun/orders/1/pay
+Content-Type: application/json
+
+###
+POST https://10080331iqpm2.vicp.fun/orders/1/complete
+Content-Type: application/json
+
+###
+POST https://10080331iqpm2.vicp.fun/orders/1/cancel
+Content-Type: application/json

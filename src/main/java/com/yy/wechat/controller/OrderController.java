@@ -5,12 +5,12 @@ import com.yy.wechat.model.DTO.response.ApiResponse;
 import com.yy.wechat.service.OrderService;
 import com.yy.wechat.utils.RequestContext;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping("/api/orders")
 @RequiredArgsConstructor
 public class OrderController {
     private final OrderService orderService;
@@ -21,19 +21,19 @@ public class OrderController {
     }
 
     @PostMapping("/{orderId}/pay")
-    public ApiResponse<Void> payOrder(@PathVariable @NotBlank Long orderId) {
+    public ApiResponse<Void> payOrder(@PathVariable @NotNull Long orderId) {
         orderService.processPayment(orderId);
         return ApiResponse.success();
     }
 
     @PostMapping("/{orderId}/complete")
-    public ApiResponse<Void> completeOrder(@PathVariable @NotBlank Long orderId) {
+    public ApiResponse<Void> completeOrder(@PathVariable @NotNull Long orderId) {
         orderService.completeOrder(orderId);
         return ApiResponse.success();
     }
 
     @PostMapping("/{orderId}/cancel")
-    public ApiResponse<Void> cancelOrder(@PathVariable @NotBlank Long orderId) {
+    public ApiResponse<Void> cancelOrder(@PathVariable @NotNull Long orderId) {
         orderService.cancelOrder(orderId,null);
         return ApiResponse.success();
     }

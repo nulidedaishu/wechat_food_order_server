@@ -1,4 +1,8 @@
 package com.yy.wechat.model.DTO.request;
 
-public record LoginRequest(String code) {
+import jakarta.validation.constraints.NotBlank;
+
+public record LoginRequest(
+        @NotBlank(message = "code不能为空")
+        String code) {
 }

@@ -184,3 +184,6 @@ VALUES
     ('FOOD20', '孜然排骨', '香辣，孜然味浓郁。', 3500, 60, 6, 'https://trading-platform1.oss-cn-nanjing.aliyuncs.com/images/%E5%AD%9C%E7%84%B6%E6%8E%92%E9%AA%A8.jpeg', 0),
     ('FOOD21', '冬瓜橙汁', '水果直接加水搅拌后得到的"果汁"，其营养成分跟直接吃水果是一样的，但是口感更好', 1500, 22, 10, 'https://trading-platform1.oss-cn-nanjing.aliyuncs.com/images/%E5%86%AC%E7%93%9C%E6%A9%99%E6%B1%81.jpeg', 0),
     ('FOOD22', '麻辣香锅', '有虾！速速来碗米饭，麻辣香锅，最受食物之一', 3500, 59, 5, 'https://trading-platform1.oss-cn-nanjing.aliyuncs.com/images/%E9%BA%BB%E8%BE%A3%E9%A6%99%E9%94%85.jpeg', 0);
+
+
+

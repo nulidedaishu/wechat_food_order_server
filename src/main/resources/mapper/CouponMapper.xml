@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yy.wechat.mapper.CouponMapper">
+
+    <resultMap id="BaseResultMap" type="com.yy.wechat.model.entity.Coupon">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="cname" column="cname" jdbcType="VARCHAR"/>
+            <result property="cvalue" column="cvalue" jdbcType="INTEGER"/>
+            <result property="ccondition" column="ccondition" jdbcType="INTEGER"/>
+            <result property="starttime" column="startTime" jdbcType="DATE"/>
+            <result property="endtime" column="endTime" jdbcType="DATE"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,cname,cvalue,ccondition,startTime,endTime,
+        status
+    </sql>
+</mapper>

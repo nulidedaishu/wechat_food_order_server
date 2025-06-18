@@ -5,7 +5,7 @@ import com.yy.wechat.model.DTO.response.ApiResponse;
 import com.yy.wechat.model.VO.CategoryWithProductsVO;
 import com.yy.wechat.model.VO.ProductDetailVO;
 import com.yy.wechat.service.ProductService;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +26,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ApiResponse<ProductDetailVO> getProductById(@PathVariable @NotBlank Long id) {
+    public ApiResponse<ProductDetailVO> getProductById(@PathVariable @NotNull Long id) {
         Product product = productService.getById(id);
         if (product != null) {
             return ApiResponse.success(new ProductDetailVO(

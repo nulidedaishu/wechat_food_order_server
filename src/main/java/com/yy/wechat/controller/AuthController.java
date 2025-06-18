@@ -4,6 +4,7 @@ import com.yy.wechat.model.DTO.request.LoginRequest;
 import com.yy.wechat.model.DTO.response.ApiResponse;
 import com.yy.wechat.service.*;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class AuthController {
     private final WxAuthService wxAuthService;
 
     @PostMapping("/login")
-    public ApiResponse<Map<String, String>> login(@RequestBody LoginRequest request) {
+    public ApiResponse<Map<String, String>> login(@RequestBody @Valid LoginRequest request) {
         String code = request.code();
         String token = wxAuthService.login(code);
         return ApiResponse.success(Collections.singletonMap("token", token));
