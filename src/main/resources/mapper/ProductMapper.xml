@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yy.wechat.mapper.ProductMapper">
+
+    <resultMap id="BaseResultMap" type="com.yy.wechat.model.entity.Product">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="sku" column="sku" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+            <result property="priceCents" column="price_cents" jdbcType="INTEGER"/>
+            <result property="stock" column="stock" jdbcType="INTEGER"/>
+            <result property="imageUrl" column="image_url" jdbcType="VARCHAR"/>
+            <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+            <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
+            <result property="isdeleted" column="isDeleted" jdbcType="TINYINT"/>
+            <result property="soldCount" column="sold_count" jdbcType="INTEGER"/>
+            <result property="categoryId" column="category_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,sku,name,description,price_cents,stock,
+        image_url,created_at,updated_at,isDeleted,sold_count,
+        category_id
+    </sql>
+</mapper>

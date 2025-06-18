@@ -1,0 +1,26 @@
+docker exec -it mysql-server mysql -uroot -p123456a+
+
+unzip
+
+mvn clean package
+
+java -jar 
+
+docker ps -a    查看所有容器
+docker stop 
+docker start
+docker restart 
+docker rm -f 
+
+花生壳
+phddns start（启动）| status（状态）| stop（停止）| restart（重启）| reset（重置）
+enable（开机自启动）| disable（关闭开机自启动）| version（版本） 
+
+直接启动项目
+mvn spring-boot:run
+新建会话
+tmux new -s springboot
+打开会话
+tmux attach -t springboot
+删除会话
+tmux kill-session -t springboot
