@@ -54,9 +54,7 @@ mybatis-plus:
     call-setters-on-nulls: true # 结果集中空值也调用setter
 
 # 微信小程序配置
-wx:
-  appid: wx2f54b69827ab705f # 小程序AppID
-  secret: a045c85f8c0bb4da3a5e4b8521484e53 # 小程序AppSecret
+
   token-expire-days:  30 # 小程序Token过期时间(天)
   cart-expire-days:  30 # 购物车过期时间(天)
 
