@@ -9,5 +9,8 @@ public record CartItemRequest(
         @NotNull(message = "商品ID不能为空")
         Long productId,
         @NotNull(message = "商品数量不能为空")
-        Integer quantity) {
+        Integer quantity,
+        @Min(value = 1, message = "桌号必须为正数")
+        @NotNull(message = "桌号不能为空")
+        Integer tableId) {
 }

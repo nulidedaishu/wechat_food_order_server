@@ -55,6 +55,11 @@ public class User implements Serializable {
     @TableLogic
     private Integer isdeleted;
 
+    /**
+     * 用户余额，单位:分
+     */
+    private Integer balance;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
@@ -77,7 +82,8 @@ public class User implements Serializable {
             && (this.getAvatarUrl() == null ? other.getAvatarUrl() == null : this.getAvatarUrl().equals(other.getAvatarUrl()))
             && (this.getCreatedAt() == null ? other.getCreatedAt() == null : this.getCreatedAt().equals(other.getCreatedAt()))
             && (this.getUpdatedAt() == null ? other.getUpdatedAt() == null : this.getUpdatedAt().equals(other.getUpdatedAt()))
-            && (this.getIsdeleted() == null ? other.getIsdeleted() == null : this.getIsdeleted().equals(other.getIsdeleted()));
+            && (this.getIsdeleted() == null ? other.getIsdeleted() == null : this.getIsdeleted().equals(other.getIsdeleted()))
+            && (this.getBalance() == null ? other.getBalance() == null : this.getBalance().equals(other.getBalance()));
     }
 
     @Override
@@ -92,6 +98,7 @@ public class User implements Serializable {
         result = prime * result + ((getCreatedAt() == null) ? 0 : getCreatedAt().hashCode());
         result = prime * result + ((getUpdatedAt() == null) ? 0 : getUpdatedAt().hashCode());
         result = prime * result + ((getIsdeleted() == null) ? 0 : getIsdeleted().hashCode());
+        result = prime * result + ((getBalance() == null) ? 0 : getBalance().hashCode());
         return result;
     }
 
@@ -109,6 +116,7 @@ public class User implements Serializable {
         sb.append(", createdAt=").append(createdAt);
         sb.append(", updatedAt=").append(updatedAt);
         sb.append(", isdeleted=").append(isdeleted);
+        sb.append(", balance=").append(balance);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

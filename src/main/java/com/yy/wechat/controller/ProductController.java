@@ -5,6 +5,7 @@ import com.yy.wechat.model.DTO.response.ApiResponse;
 import com.yy.wechat.model.VO.CategoryWithProductsVO;
 import com.yy.wechat.model.VO.ProductDetailVO;
 import com.yy.wechat.service.ProductService;
+import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +22,8 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping("/list")
-    public ApiResponse<List<CategoryWithProductsVO>> listProducts() {
-        return ApiResponse.success(productService.listProducts());
+    public ApiResponse<List<CategoryWithProductsVO>> listProducts(@Nullable String keyWord) {
+        return ApiResponse.success(productService.listProducts(keyWord));
     }
 
     @GetMapping("/{id}")

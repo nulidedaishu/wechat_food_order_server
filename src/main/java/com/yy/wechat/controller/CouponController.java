@@ -1,12 +1,10 @@
 package com.yy.wechat.controller;
 
-import cn.hutool.core.bean.BeanUtil;
 import com.yy.wechat.model.DTO.response.ApiResponse;
 import com.yy.wechat.model.VO.CouponVO;
 import com.yy.wechat.model.entity.Coupon;
 import com.yy.wechat.service.CouponService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/coupon")
+@RequestMapping("/api/coupons")
 @RequiredArgsConstructor
 public class CouponController {
 

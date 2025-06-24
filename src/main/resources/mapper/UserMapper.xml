@@ -13,10 +13,11 @@
             <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
             <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
             <result property="isdeleted" column="isDeleted" jdbcType="TINYINT"/>
+            <result property="balance" column="balance" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,openid,session_token,nickname,avatar_url,created_at,
-        updated_at,isDeleted
+        updated_at,isDeleted,balance
     </sql>
 </mapper>

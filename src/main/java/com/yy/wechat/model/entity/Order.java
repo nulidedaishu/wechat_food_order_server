@@ -30,7 +30,7 @@ public class Order implements Serializable {
     private Integer totalAmount;
 
     /**
-     * 订单状态：0=未支付，1=进行中，2=已完成，3=已取消
+     * 订单状态：0=未支付，1=已支付，2=已取消
      */
     private Integer status;
 
@@ -49,6 +49,36 @@ public class Order implements Serializable {
      */
     @TableLogic
     private Integer isdeleted;
+
+    /**
+     * 桌号
+     */
+    private Integer tableId;
+
+    /**
+     * 用餐人数
+     */
+    private Integer eatNumber;
+
+    /**
+     * 备注
+     */
+    private String remark;
+
+    /**
+     * 支付方式，(0:余额支付1:微信支付2:支付宝支付)
+     */
+    private Integer payType;
+
+    /**
+     * 使用的优惠券id
+     */
+    private Integer couponId;
+
+    /**
+     * 使用的我的优惠券id
+     */
+    private Integer myCouponId;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
@@ -71,7 +101,13 @@ public class Order implements Serializable {
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getCreatedAt() == null ? other.getCreatedAt() == null : this.getCreatedAt().equals(other.getCreatedAt()))
             && (this.getUpdatedAt() == null ? other.getUpdatedAt() == null : this.getUpdatedAt().equals(other.getUpdatedAt()))
-            && (this.getIsdeleted() == null ? other.getIsdeleted() == null : this.getIsdeleted().equals(other.getIsdeleted()));
+            && (this.getIsdeleted() == null ? other.getIsdeleted() == null : this.getIsdeleted().equals(other.getIsdeleted()))
+            && (this.getTableId() == null ? other.getTableId() == null : this.getTableId().equals(other.getTableId()))
+            && (this.getEatNumber() == null ? other.getEatNumber() == null : this.getEatNumber().equals(other.getEatNumber()))
+            && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
+            && (this.getPayType() == null ? other.getPayType() == null : this.getPayType().equals(other.getPayType()))
+            && (this.getCouponId() == null ? other.getCouponId() == null : this.getCouponId().equals(other.getCouponId()))
+            && (this.getMyCouponId() == null ? other.getMyCouponId() == null : this.getMyCouponId().equals(other.getMyCouponId()));
     }
 
     @Override
@@ -85,6 +121,12 @@ public class Order implements Serializable {
         result = prime * result + ((getCreatedAt() == null) ? 0 : getCreatedAt().hashCode());
         result = prime * result + ((getUpdatedAt() == null) ? 0 : getUpdatedAt().hashCode());
         result = prime * result + ((getIsdeleted() == null) ? 0 : getIsdeleted().hashCode());
+        result = prime * result + ((getTableId() == null) ? 0 : getTableId().hashCode());
+        result = prime * result + ((getEatNumber() == null) ? 0 : getEatNumber().hashCode());
+        result = prime * result + ((getRemark() == null) ? 0 : getRemark().hashCode());
+        result = prime * result + ((getPayType() == null) ? 0 : getPayType().hashCode());
+        result = prime * result + ((getCouponId() == null) ? 0 : getCouponId().hashCode());
+        result = prime * result + ((getMyCouponId() == null) ? 0 : getMyCouponId().hashCode());
         return result;
     }
 
@@ -101,6 +143,12 @@ public class Order implements Serializable {
         sb.append(", createdAt=").append(createdAt);
         sb.append(", updatedAt=").append(updatedAt);
         sb.append(", isdeleted=").append(isdeleted);
+        sb.append(", tableId=").append(tableId);
+        sb.append(", eatNumber=").append(eatNumber);
+        sb.append(", remark=").append(remark);
+        sb.append(", payType=").append(payType);
+        sb.append(", couponId=").append(couponId);
+        sb.append(", myCouponId=").append(myCouponId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

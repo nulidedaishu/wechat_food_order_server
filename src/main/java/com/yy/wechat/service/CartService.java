@@ -6,18 +6,18 @@ import com.yy.wechat.model.VO.CartVO;
 
 public interface CartService {
     /**
-     * 获取用户的购物车。
+     * 获取桌子的购物车。
      */
-    CartVO getCart(Long userId);
+    CartVO getCart(Integer tableId);
 
     /**
      * 对该商品增量更新数量。
      * 返回最新的购物车列表。
      */
-    CartVO addOrUpdateItem(Long userId, Long productId, Integer qty);
+    CartVO addOrUpdateItem(Long productId, Integer qty, Integer tableId);
 
     /**
      * 清空购物车。
      */
-    CartVO deleteCart(Long userId);
+    CartVO deleteCart(Integer tableId);
 }

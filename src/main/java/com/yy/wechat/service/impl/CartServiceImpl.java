@@ -23,8 +23,8 @@ public class CartServiceImpl implements CartService {
     private final StringRedisTemplate redis;
 
     @Override
-    public CartVO addOrUpdateItem(Long userId, Long productId, Integer qty) {
-        String key = KEY_PREFIX + userId;
+    public CartVO addOrUpdateItem(Long productId, Integer qty, Integer tableId) {
+        String key = KEY_PREFIX + tableId;
         HashOperations<String, String, String> ops = redis.opsForHash();
 
         String pidStr = productId.toString();
@@ -37,29 +37,29 @@ public class CartServiceImpl implements CartService {
             ops.delete(key, pidStr);
         }
         redis.expire(key, cartExpireDays, TimeUnit.DAYS);
-        return buildCartResponse(key, userId, ops);
+        return buildCartResponse(key, tableId, ops);
     }
 
     @Override
-    public CartVO getCart(Long userId) {
-        String key = KEY_PREFIX + userId;
+    public CartVO getCart(Integer tableId) {
+        String key = KEY_PREFIX + tableId;
         HashOperations<String, String, String> hashOps = redis.opsForHash();
         redis.expire(key, cartExpireDays, TimeUnit.DAYS);
-        return buildCartResponse(key, userId, hashOps);
+        return buildCartResponse(key, tableId, hashOps);
     }
 
-    private CartVO buildCartResponse(String key, Long userId, HashOperations<String, String, String> ops) {
+    private CartVO buildCartResponse(String key, Integer tableId, HashOperations<String, String, String> ops) {
         Map<String, String> entries = ops.entries(key);
         List<CartItemVO> items = entries.entrySet().stream()
                 .map(e -> new CartItemVO(Long.valueOf(e.getKey()), Integer.valueOf(e.getValue())))
                 .collect(Collectors.toList());
-        return new CartVO(userId, items);
+        return new CartVO(tableId, items);
     }
 
     @Override
-    public CartVO deleteCart(Long userId) {
-        String key = KEY_PREFIX + userId;
+    public CartVO deleteCart(Integer tableId) {
+        String key = KEY_PREFIX + tableId;
         redis.delete(key);
-        return new CartVO(userId, List.of());
+        return new CartVO(tableId, List.of());
     }
 }

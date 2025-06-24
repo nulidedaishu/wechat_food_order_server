@@ -1,15 +1,15 @@
 package com.yy.wechat.utils;
 
 public class RequestContext {
-    private static final ThreadLocal<String> CURRENT_OPENID = new ThreadLocal<>();
+    private static final ThreadLocal<String> CURRENT_TOKEN = new ThreadLocal<>();
     private static final ThreadLocal<Long> CURRENT_USER_ID = new ThreadLocal<>();
 
-    public static void setCurrentOpenid(String openid) {
-        CURRENT_OPENID.set(openid);
+    public static void setCurrentToken(String token) {
+        CURRENT_TOKEN.set(token);
     }
 
-    public static String getCurrentOpenid() {
-        return CURRENT_OPENID.get();
+    public static String getCurrentToken() {
+        return CURRENT_TOKEN.get();
     }
 
     public static void setCurrentUserId(Long userId) {
@@ -21,7 +21,7 @@ public class RequestContext {
     }
 
     public static void clear() {
-        CURRENT_OPENID.remove();
+        CURRENT_TOKEN.remove();
         CURRENT_USER_ID.remove();
     }
 }

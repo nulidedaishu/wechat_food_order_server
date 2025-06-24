@@ -17,16 +17,6 @@ spring:
       port: 6379
       database: 0
 
-#sa-token:
-#  token-name: satoken    # token名称
-#  timeout: -1            # 有效期永久（单位：秒）
-#  active-timeout: -1   # 无操作续期（-1不续期）
-#  is-concurrent: false   # 禁止多地登录
-#  is-share: true         # 共享Cookie
-#  token-style: simple-uuid      # token生成策略
-#  is-log: true
-#  isReadCookie: false    # 是否尝试从 cookie 里读取 Token，此值为 false 后，StpUtil.login(id) 登录时也不会再往前端注入Cookie
-
 mybatis-plus:
   # 全局配置
   global-config:
@@ -56,9 +46,8 @@ mybatis-plus:
 # 微信小程序配置
 wx:
   appid: wx2f54b69827ab705f # 小程序AppID
-  secret: a045c85f8c0bb4da3a5e4b8521484e53 # 小程序AppSecret
-  token-expire-days:  30 # 小程序Token过期时间(天)
-  cart-expire-days:  30 # 购物车过期时间(天)
+  token-expire-days:  7 # 小程序Token过期时间(天)
+  cart-expire-days:  1 # 购物车过期时间(天)
 
 logging:
   level:

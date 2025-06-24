@@ -32,16 +32,17 @@ public class AuthInterceptor implements HandlerInterceptor {
 
         String token = authHeader.substring(7);
         String redisKey = "wx_token:" + token;
-        String userId = (String) redisTemplate.opsForValue().get(redisKey);
+        String userIdStr = (String) redisTemplate.opsForValue().get(redisKey);
 
-        if (userId == null) {
+        if (userIdStr == null) {
             throw new UnauthorizedException("登录状态已过期");
         }
-        Long userIdStr = Long.parseLong(userId);
+        Long userId = Long.parseLong(userIdStr);
         // 更新Redis中Token的过期时间
         redisTemplate.expire(redisKey, tokenExpireDays, TimeUnit.DAYS);
         // 存储到请求上下文
-        RequestContext.setCurrentUserId(userIdStr);
+        RequestContext.setCurrentUserId(userId);
+        RequestContext.setCurrentToken(token);
         return true;
     }
 

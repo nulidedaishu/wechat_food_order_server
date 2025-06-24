@@ -12,10 +12,17 @@
             <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
             <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
             <result property="isdeleted" column="isDeleted" jdbcType="TINYINT"/>
+            <result property="tableId" column="table_id" jdbcType="INTEGER"/>
+            <result property="eatNumber" column="eat_number" jdbcType="INTEGER"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="payType" column="pay_type" jdbcType="INTEGER"/>
+            <result property="couponId" column="coupon_id" jdbcType="INTEGER"/>
+            <result property="myCouponId" column="my_coupon_id" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="Base_Column_List">
         id,user_id,total_amount,status,created_at,updated_at,
-        isDeleted
+        isDeleted,table_id,eat_number,remark,pay_type,
+        coupon_id,my_coupon_id
     </sql>
 </mapper>
